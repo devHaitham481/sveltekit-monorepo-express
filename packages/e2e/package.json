@@ -1,0 +1,15 @@
+{
+  "name": "@awesome-org/e2e",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "cypress run --browser=chrome",
+    "open": "cypress open",
+    "cy": "cypress"
+  },
+  "devDependencies": {
+    "@testing-library/cypress": "^9.0.0",
+    "cypress": "^13.1.0"
+  }
+}

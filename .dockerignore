@@ -1,0 +1,9 @@
+vol/**
+**node_modules
+**dist
+**tmp
+**build
+**out
+**.svelte-kit
+**.env
+**/target

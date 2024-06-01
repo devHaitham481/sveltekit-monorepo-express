@@ -1,0 +1,40 @@
+{
+  "name": "@awesome-org/db",
+  "version": "0.0.1",
+  "private": true,
+  "main": "generated/index.js",
+  "types": "generated/index.d.ts",
+  "type": "commonjs",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./generated/index.js",
+      "require": "./generated/index.js"
+    }
+  },
+  "scripts": {
+    "prod:init": "prisma generate && prisma migrate deploy && pnpm run cp-files",
+    "prod:migrate": "prisma migrate deploy --schema=./prisma/schema.prisma",
+    "prod:reset": "prisma migrate reset --force --preview-feature && prisma migrate deploy --preview-feature",
+    "init": "pnpm run migrate && pnpm run cp-files",
+    "cp-files": "node copy-files.mjs",
+    "build": "prisma generate && pnpm run cp-files",
+    "format": "prisma format",
+    "generate": "prisma generate",
+    "migrate": "prisma migrate dev && pnpm run cp-files",
+    "delete": "prisma migrate reset",
+    "reset": "prisma migrate reset && pnpm run cp-files",
+    "seed": "ts-node ./prisma/seed.ts"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/node": "^20.5.9",
+    "@awesome-org/types": "workspace:*",
+    "bcrypt": "5.1.1",
+    "prisma": "^5.2.0",
+    "ts-node": "^10.9.1"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.2.0"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@awesome-org/private-pkg",
+  "version": "0.0.1",
+  "private": true,
+  "homepage": "https://github.com/TeemuKoivisto/sveltekit-monorepo-template/packages/private-pkg/README.md",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "type": "module",
+  "types": "types/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "watch": "rimraf dist && vite build --watch"
+  },
+  "dependencies": {}
+}
